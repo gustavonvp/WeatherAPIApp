@@ -1,8 +1,6 @@
 # WeatherAPIApp
 Rest Weather App
 
-https://github.com/gustavonvp/WeatherAPIApp/issues/1#issue-837006318
-
 
 
 
