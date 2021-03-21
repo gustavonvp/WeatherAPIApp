@@ -1,7 +1,7 @@
 # WeatherAPIApp
 Rest Weather App
 
-https://user-images.githubusercontent.com/54008916/111897267-c2a11580-89fd-11eb-92d5-787dcfd40366.PNG
+![androidapp](https://user-images.githubusercontent.com/54008916/111897267-c2a11580-89fd-11eb-92d5-787dcfd40366.PNG)
 
 
 This App permit you type some caracters that represent research in a external API, using a lib called Volley, making Rest Service with JSON, searching states, like 'Rio de Janeiro', 'London', ....
