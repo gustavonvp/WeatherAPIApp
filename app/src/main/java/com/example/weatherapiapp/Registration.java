@@ -1,49 +1,59 @@
 package com.example.weatherapiapp;
 
+
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
+public class Registration extends AppCompatActivity {
+    Button _btnreg;
+    EditText  et_username, et_pass1, et_pass2;
 
-public class    MainActivity extends AppCompatActivity {
-//    SQLiteOpenHelper openHelper;
-//    SQLiteDatabase db;
-
-    Button _btnlogin, _btnreg;
-//    EditText _txtEmail, _txtPass;
-//    Cursor cursor;
-
+    DBHelper2 db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_main );
+        setContentView( R.layout.activity_registration );
 
-        _btnlogin=(Button)findViewById( R.id.btnlogin );
-        _btnreg = (Button) findViewById( R.id.btnregister);
+        db = new DBHelper2( this );
 
-        _btnlogin.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, AuthLoginPage.class);
-                startActivity( i );
-            }
-        } );
+        _btnreg = (Button) findViewById( R.id.btnreg);
+        et_username = (EditText)findViewById( R.id.Username );
+        et_pass1 = (EditText)findViewById( R.id.Password );
+        et_pass2 = (EditText)findViewById( R.id.rPassword );
 
         _btnreg.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Registration.class);
-                startActivity( i );
+                String username = et_username.getText().toString();
+                String p1 = et_pass1.getText().toString();
+                String p2 = et_pass2.getText().toString();
+
+                if(username.equals( "" )){
+                    Toast.makeText( Registration.this, "Username não inserido, tente novamente",Toast.LENGTH_SHORT ).show();
+                }else if (p1.equals( "" ) || p2.equals( "" )) {
+                    Toast.makeText( Registration.this, "Password não preenchido, tente novamente" , Toast.LENGTH_SHORT).show();
+                }else if (!p1.equals( p2 )){
+                    Toast.makeText( Registration.this, "As duas password não correspondem, tente novamente", Toast.LENGTH_SHORT ).show();
+                }else {
+                   Boolean res = db.CriarUtilizador( username, p1 );
+                   if(res == true) {
+                       Toast.makeText( Registration.this, "Registro OK", Toast.LENGTH_SHORT ).show();
+                   }else {
+                       Toast.makeText( Registration.this, "Registro inválido, tente novamente", Toast.LENGTH_SHORT ).show();
+                   }
+                }
             }
         } );
-
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById( R.id.bottom_navigation );
         bottomNavigationView.setSelectedItemId( R.id.nav_home );
@@ -75,8 +85,7 @@ public class    MainActivity extends AppCompatActivity {
 
 
 
+
     }
 
 }
-
-

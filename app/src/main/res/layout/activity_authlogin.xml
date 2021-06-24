@@ -17,34 +17,46 @@
 
     </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btnlogin"
-                    android:layout_width="132dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:background="@drawable/gradient_bg"
-                    android:text="Log in"
-                    android:layout_gravity="center"
-                    android:textSize="16sp" />
+        <EditText
+            android:id="@+id/Username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Username"
+            android:inputType="textEmailAddress"
+            android:maxLines="2"
+            android:paddingStart="5dp"
+            android:singleLine="true"/>
 
+        <EditText
+            android:id="@+id/Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Password"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="5dp"
+            android:singleLine="true"/>
 
-                <Button
-                    android:id="@+id/btnregister"
-                    android:layout_width="132dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="20dp"
-                    android:background="@drawable/gradient_bg"
-                    android:text="Sign Up Here"
-                    android:layout_gravity="center"
-                    android:textSize="16sp" />
-            </LinearLayout>
+        <Button
+            android:id="@+id/btnlogin"
+            android:layout_width="132dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/gradient_bg"
+            android:text="Log in"
+            android:layout_gravity="center"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
